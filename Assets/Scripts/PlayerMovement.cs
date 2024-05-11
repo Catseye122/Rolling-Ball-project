@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRb;
     public Transform cam;
     public float speed = 5.0f;
-   
+
 
     [SerializeField] private float gravity;
     [SerializeField] private float jumpForce;
@@ -39,23 +39,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
     {
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             Jump();
-     
+
         }
-     
-    if(Input.GetButtonDown("Fire1"))
+
+        if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log(isGrounded());
         }
-    
-    
+
+
     }
 
     private void FixedUpdate()
@@ -68,23 +68,23 @@ public class PlayerMovement : MonoBehaviour
 
         playerRb.AddForce(movement * speed * Time.deltaTime);
 
-       if(movement.magnitude > 0.1f)
+        if (movement.magnitude > 0.1f)
 
         {
             float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; 
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
         }
 
-        
+
 
     }
 
     private void Jump()
     {
 
-        if(isGrounded() == true)
+        if (isGrounded() == true)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
@@ -95,13 +95,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if(other.CompareTag("Powerup"))
+
+        if (other.CompareTag("Powerup"))
         {
             isPoweredUp = true;
             Destroy(other.gameObject);
         }
-      
+
 
     }
 
@@ -115,8 +115,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-        if(collision.gameObject.CompareTag("Enemy") && isPoweredUp == true)
+
+        if (collision.gameObject.CompareTag("Enemy") && isPoweredUp == true)
         {
             Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
 
@@ -125,30 +125,28 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if(collision.gameObject.CompareTag("PowerUp"))
+        if (collision.gameObject.CompareTag("PowerUp"))
         {
             isPoweredUp = true;
-            
+
         }
 
-       
+
 
     }
 
-   public void Use()
+    public void PickUpItem(GameObject WinItem)
     {
-        if (playerRb !=null)
+       
         {
             //Destroy(WinningItem);
-          //playerRb.PickUpItem(WinningItem); 
+            //playerRb.PickUpItem(WinningItem); 
         }
-
-
 
     }
 
-
-
+    
+    
 
 
 

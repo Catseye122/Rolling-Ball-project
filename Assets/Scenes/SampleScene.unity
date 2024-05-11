@@ -3550,6 +3550,7 @@ GameObject:
   - component: {fileID: 90409454}
   - component: {fileID: 90409453}
   - component: {fileID: 90409455}
+  - component: {fileID: 90409456}
   m_Layer: 0
   m_Name: WinItem
   m_TagString: WinItem
@@ -3569,7 +3570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73947a6f1f0d5d147beaf4e9d4d9a2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPickedUp: 0
+  PickUpItem: 0
+  WinItem: {fileID: 90409452}
 --- !u!4 &90409454
 Transform:
   m_ObjectHideFlags: 0
@@ -3579,7 +3581,7 @@ Transform:
   m_GameObject: {fileID: 90409452}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.280586, y: 3.2122667, z: -8.853207}
+  m_LocalPosition: {x: 3.113, y: 3.2122667, z: -9.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3602,6 +3604,27 @@ MonoBehaviour:
   startText: {fileID: 0}
   winningItem: {fileID: 90409453}
   timerIsRunning: 1
+--- !u!135 &90409456
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90409452}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.17946208
+  m_Center: {x: 0.12853283, y: 0.43906415, z: 0.2219975}
 --- !u!43 &94800097
 Mesh:
   m_ObjectHideFlags: 0
@@ -5056,7 +5079,6 @@ GameObject:
   - component: {fileID: 330585549}
   - component: {fileID: 330585548}
   - component: {fileID: 330585547}
-  - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5217,22 +5239,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &330585550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2702d22c35b37642baec1d1de532432, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetX: 0
-  offsetY: 0
-  offsetZ: 0
-  player: {fileID: 1214200153}
 --- !u!43 &381458338
 Mesh:
   m_ObjectHideFlags: 0
@@ -17901,6 +17907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1642006672}
   - component: {fileID: 1642006673}
+  - component: {fileID: 1642006674}
   m_Layer: 0
   m_Name: CM FreeLook Camera
   m_TagString: Untagged
@@ -18031,6 +18038,22 @@ MonoBehaviour:
   - {fileID: 1701230801}
   - {fileID: 967767733}
   - {fileID: 1920398333}
+--- !u!114 &1642006674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642006671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2702d22c35b37642baec1d1de532432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetX: 0
+  offsetY: 0
+  offsetZ: 0
+  player: {fileID: 1214200153}
 --- !u!1 &1648930254
 GameObject:
   m_ObjectHideFlags: 0
